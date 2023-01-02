@@ -14,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return MaterialApp(
-      themeMode:ThemeMode.dark,  
+      debugShowCheckedModeBanner: false,
+         darkTheme:ThemeData(brightness: Brightness.dark) ,
       home:const NotesApp() ,
     );
   }}
