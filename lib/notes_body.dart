@@ -1,7 +1,9 @@
 
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+
+import 'custom_text_form.dart';
  IconSearch(){
     return Container(
       width: 40,
@@ -45,16 +47,16 @@ NotesItem(){
   );
 }
 
- AddNoteBottom(){
-    return Container(
-
-      decoration: BoxDecoration(
-        
-      ),
+ AddNoteBottom(BuildContext context){
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
       child: Column(
-        children: [
-          
+        children: const [
+          SizedBox(height: 30,),
+              CustomTextForm(),
         ],
       ),
     );
    }
+
+const isPrimary =Colors.teal;

@@ -19,7 +19,7 @@ class NotesApp extends StatelessWidget {
               ),
               context: context, 
             builder: ((context) {
-              return AddNoteBottom();
+              return AddNoteBottom(context);
             }));
           }
           ),child: Icon(Icons.add),
