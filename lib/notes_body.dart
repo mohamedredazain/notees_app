@@ -53,7 +53,14 @@ NotesItem(){
       child: Column(
         children: const [
           SizedBox(height: 30,),
-              CustomTextForm(),
+              CustomTextForm(
+                hint: 'Title',
+
+              ),
+              SizedBox(height: 16,),
+              CustomTextForm(
+                hint:'content',
+                maxLines: 5, )
         ],
       ),
     );
