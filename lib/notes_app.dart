@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:notees_app/edit_note_view.dart';
 
 import 'notes_body.dart';
 
@@ -24,21 +25,22 @@ class NotesApp extends StatelessWidget {
           }
           ),child: Icon(Icons.add),
         ),
-        body: Column(
-          children:  [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Row(
-                children:  [
-                  Text('Notas'),
-                 Spacer(),
-                 IconSearch()  
-                ],
+        body: GestureDetector(
+          onTap: (() {
+            Navigator.push(context, MaterialPageRoute(builder: (context){
+              return EditNoteView();
+            }));
+            
+          }),
+          child: Column(
+            children:  [
+              CustomAppBar(
+                text: 'Notes',
+                icon: Icons.search
               ),
-            ),
-            SizedBox(height: 20,),
-            Expanded(child: NotesListView()),
-          ],
+              Expanded(child: NotesListView()),
+            ],
+          ),
         ),
       ),
     );
