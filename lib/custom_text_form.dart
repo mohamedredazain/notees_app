@@ -14,20 +14,23 @@ class CustomTextForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextFormField(
-          maxLines: maxLines,
-          cursorColor: isPrimary,
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle:const TextStyle(color: isPrimary,fontSize: 12),
-              border: buildBorder(),
-              focusedBorder: buildBorder(isPrimary),
-            ),
-            
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 8,bottom: 16,left: 16,right: 16),
+      child: Column(
+        children: [
+          TextFormField(
+            maxLines: maxLines,
+            cursorColor: isPrimary,
+            decoration: InputDecoration(
+              hintText: hint,
+              hintStyle:const TextStyle(color: isPrimary,fontSize: 12),
+                border: buildBorder(),
+                focusedBorder: buildBorder(isPrimary),
+              ),
+              
+          ),
+        ],
+      ),
     );
   }
 

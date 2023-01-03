@@ -73,25 +73,19 @@ NotesItem() {
 }
 
 AddNoteBottom(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: Column(
-      children: const [
-        SizedBox(
-          height: 30,
-        ),
-        CustomTextForm(
-          hint: 'Title',
-        ),
-        SizedBox(
-          height: 16,
-        ),
-        CustomTextForm(
-          hint: 'content',
-          maxLines: 5,
-        )
-      ],
-    ),
+  return Column(
+    children: const [
+      SizedBox(
+        height: 30,
+      ),
+      CustomTextForm(
+        hint: 'Title',
+      ),
+      CustomTextForm(
+        hint: 'Content',
+        maxLines: 5,
+      )
+    ],
   );
 }
 
