@@ -72,6 +72,12 @@ NotesItem() {
   );
 }
 
+BottomEditNote(){
+  return ElevatedButton(
+    onPressed: (){},
+    child: Text('Edit',style: TextStyle(),));
+  
+}
 AddNoteBottom(BuildContext context) {
   return Column(
     children: const [
@@ -84,7 +90,8 @@ AddNoteBottom(BuildContext context) {
       CustomTextForm(
         hint: 'Content',
         maxLines: 5,
-      )
+      ),
+    
     ],
   );
 }

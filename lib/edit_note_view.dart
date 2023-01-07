@@ -21,9 +21,8 @@ class EditNoteView extends StatelessWidget {
               CustomTextForm
             (hint: 'Content',
             maxLines: 5,
-
-            )
-            
+            ),
+            BottomEditNote(),
           ],
         ),
       ),

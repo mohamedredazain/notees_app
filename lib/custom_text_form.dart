@@ -27,13 +27,12 @@ class CustomTextForm extends StatelessWidget {
                 border: buildBorder(),
                 focusedBorder: buildBorder(isPrimary),
               ),
-              
           ),
         ],
       ),
     );
   }
-
+  
   OutlineInputBorder buildBorder([color]){
      return OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),
