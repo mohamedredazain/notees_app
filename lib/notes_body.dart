@@ -97,3 +97,4 @@ AddNoteBottom(BuildContext context) {
 }
 
 const isPrimary = Colors.teal;
+const jNotesBox ='notes_box';

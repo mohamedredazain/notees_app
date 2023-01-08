@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:notees_app/notes_body.dart';
 
 import 'notes_app.dart';
 
-void main() {
+void main() async{
+  await Hive.initFlutter();
+
+ await Hive.openBox(jNotesBox);
   runApp(const MyApp());
 }
 
