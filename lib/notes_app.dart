@@ -82,29 +82,30 @@ class _AddNoteFormState extends State<_AddNoteForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      autovalidateMode: _autovalidateMode,
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
+    return Padding(
+      
+      padding: const EdgeInsets.only(top:26,left: 16,right: 16 ),
+      child: Form(
+        key: _formKey,
+        autovalidateMode: _autovalidateMode,
         child: Column(
-        children:  [
-          CustomTextForm(
-            onSaved: (value) {
-              title =value;
-            },
-            hint: 'Title',
-          ),
-          SizedBox(height:16),
-          CustomTextForm(
-            onSaved: (value){
-              subtitle =value;
-            },
-            hint: 'Content',
-            maxLines: 4,
-          ),
-         const SizedBox(height:34),
-         CustomButton(
+          children: [
+            CustomTextForm(
+              onSaved: (value) {
+                title =value;
+              },
+              hint: 'Title',
+            ),
+            SizedBox(height:16),
+            CustomTextForm(
+              onSaved: (value){
+                subtitle =value;
+              },
+              hint: 'Content',
+              maxLines: 4,
+            ),
+            SizedBox(height: 20,),
+            CustomButton(
          onTap: (() {
             if(_formKey.currentState!.validate()){
               _formKey.currentState!.save();
@@ -117,7 +118,7 @@ class _AddNoteFormState extends State<_AddNoteForm> {
          })
          ),
         const SizedBox(height: 0,)
-        ],
+          ],
         ),
       ),
     );
