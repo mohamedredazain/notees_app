@@ -72,28 +72,29 @@ NotesItem() {
   );
 }
 
-BottomEditNote(){
-  return ElevatedButton(
-    onPressed: (){},
-    child: Text('Edit',style: TextStyle(),));
   
-}
-AddNoteBottom(BuildContext context) {
-  return Column(
-    children: const [
-      SizedBox(
-        height: 30,
-      ),
-      CustomTextForm(
-        hint: 'Title',
-      ),
-      CustomTextForm(
-        hint: 'Content',
-        maxLines: 5,
-      ),
-    
-    ],
-  );
+
+
+
+class CustomButton extends StatelessWidget {
+  final void Function()? onTap;
+   const CustomButton({
+    Key? key, this.onTap,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector (
+     onTap: onTap,
+     child: Container(
+       width: 100,
+       height: 50,
+       decoration: BoxDecoration(
+         color: Colors.teal,
+         borderRadius: BorderRadius.circular(10)
+       ),
+       child: Center(child: Text('Add',textAlign: TextAlign.center, style: TextStyle(color: Colors.black),))));
+  }
 }
 
 const isPrimary = Colors.teal;

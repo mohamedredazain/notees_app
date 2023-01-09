@@ -7,29 +7,35 @@ class CustomTextForm extends StatelessWidget {
   
   const CustomTextForm({
     Key? key,
-    required this.hint, this.maxLines,
+    required this.hint, this.maxLines, this.onSaved,
   }) : super(key: key);
    final String hint;
      final int? maxLines;
+     final Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 8,bottom: 16,left: 16,right: 16),
-      child: Column(
-        children: [
-          TextFormField(
-            maxLines: maxLines,
-            cursorColor: isPrimary,
-            decoration: InputDecoration(
-              hintText: hint,
-              hintStyle:const TextStyle(color: isPrimary,fontSize: 12),
-                border: buildBorder(),
-                focusedBorder: buildBorder(isPrimary),
-              ),
-          ),
-        ],
-      ),
+    return Column(
+      children: [
+        TextFormField(
+          onSaved: onSaved,
+          validator: (value) {
+            if(value?.isEmpty ?? true){
+              return "Field is required";
+            }else{
+              return null;
+            }
+          },
+          maxLines: maxLines,
+          cursorColor: isPrimary,
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle:const TextStyle(color: isPrimary,fontSize: 12),
+              border: buildBorder(),
+              focusedBorder: buildBorder(isPrimary),
+            ),
+        ),
+      ],
     );
   }
   

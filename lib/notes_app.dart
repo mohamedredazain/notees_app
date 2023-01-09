@@ -1,10 +1,11 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, must_be_immutable
 
 
 
 import 'package:flutter/material.dart';
 import 'package:notees_app/edit_note_view.dart';
 
+import 'custom_text_form.dart';
 import 'notes_body.dart';
 
 class NotesApp extends StatelessWidget {
@@ -24,8 +25,7 @@ class NotesApp extends StatelessWidget {
             builder: ((context) {
               return Column(
                 children: [
-                   AddNoteBottom(context),
-                   BottomEditNote()
+                   _AddNoteForm(),
                 ],
               );
             }));
@@ -47,6 +47,7 @@ class NotesApp extends StatelessWidget {
       
     );
   }
+
   NotesListView(context){
     return  GestureDetector(
           onTap: (() {
@@ -63,6 +64,62 @@ class NotesApp extends StatelessWidget {
             );
         })
          ),
+    );
+  }
+}
+
+class _AddNoteForm extends StatefulWidget {
+  @override
+  State<_AddNoteForm> createState() => _AddNoteFormState();
+}
+
+class _AddNoteFormState extends State<_AddNoteForm> {
+  final GlobalKey<FormState> _formKey = GlobalKey();
+
+ AutovalidateMode _autovalidateMode =AutovalidateMode.disabled;
+
+ String? title , subtitle;
+
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      autovalidateMode: _autovalidateMode,
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+        children:  [
+          CustomTextForm(
+            onSaved: (value) {
+              title =value;
+            },
+            hint: 'Title',
+          ),
+          SizedBox(height:16),
+          CustomTextForm(
+            onSaved: (value){
+              subtitle =value;
+            },
+            hint: 'Content',
+            maxLines: 4,
+          ),
+         const SizedBox(height:34),
+         CustomButton(
+         onTap: (() {
+            if(_formKey.currentState!.validate()){
+              _formKey.currentState!.save();
+            }else{
+              _autovalidateMode =AutovalidateMode.always;
+              setState(() {
+                
+              });
+            }
+         })
+         ),
+        const SizedBox(height: 0,)
+        ],
+        ),
+      ),
     );
   }
 }

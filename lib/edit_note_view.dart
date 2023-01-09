@@ -22,7 +22,9 @@ class EditNoteView extends StatelessWidget {
             (hint: 'Content',
             maxLines: 5,
             ),
-            BottomEditNote(),
+            CustomButton(
+            
+            ),
           ],
         ),
       ),
